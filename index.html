@@ -1,21 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Type + Code Project 1</title>
-</head>
-<body>
-	
-	<h1>Type + Code Project 1</h1>
-	<h2>Your name here</h2>
+	<style>
+		* { margin-left: 30px;
+			box-sizing: border-box;
+			font-family: Helvetica;
+			font-size: 4vw;
+			background-color: yellow;
+		}
 
-	<ul>
-		<li><a href="" target="_blank">Link to the original article</a></li>
-		<li><a href="v1/">Version 1</a></li>
-		<li><a href="v2/">Version 2</a></li>
-		<li><a href="v3/">Version 3</a></li>
-	</ul>
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 120px;
+		}
+
+		.link-list {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.link {
+			font-family: Helvetica;
+			color: black;
+			text-decoration: none;
+			margin: 10px 0;
+		}
+
+		.link:hover {
+			color: blue;
+		}
+
+		img {
+			width: 300px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Type + Code Project 1 <br>
+		Rocky Yuan</h1>
+		<br>
+
+	<div class="container">
+		<img src="https://freight.cargo.site/t/original/i/S1979657811438952833442358622210/Rocky.png" alt="Rocky Yuan Image">
+
+		<div class="link-list">
+			<ul>
+				<li><a href="https://designingfriction.com" target="_blank" class="link">Link to the original article</a></li>
+				<li><a href="v1/" class="link">Version 1</a></li>
+				<li><a href="v2/" class="link">Version 2</a></li>
+				<li><a href="v3/" class="link">Version 3</a></li>
+			</ul>
+		</div>
+	</div>
 
 </body>
+
 </html>
