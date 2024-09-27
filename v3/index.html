@@ -6,16 +6,21 @@
 	<title>brick-barrier.html</title>
 
 	<style>
+		@font-face {
+			font-family: "New Font";
+			src: url("assets/ABCWhyteInktrap-Regular-Trial.otf") format("opentype");
+		}
+
+		body {
+			font-family: "New Font", sans-serif;
+		}
+
 		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 		}
-		body {
-			font-family: 'Helvetica', sans-serif;
-			font-weight: normal; /* Set normal font weight for all text */
-		}
-		/* Navbar Styles */
+
 		.navbar {
 			display: flex;
 			justify-content: space-between;
@@ -30,11 +35,11 @@
 			z-index: 10;
 			margin-bottom: 0;
 		}
+
 		.navbar .logo {
 			font-size: 24px;
 		}
 
-		/* Flex container for the main content */
 		.flex-parent {
 			display: flex;
 			flex-direction: column;
@@ -43,135 +48,172 @@
 			background-color: black;
 			width: 100vw;
 			height: 100vh;
-			padding-top: 60px; /* Adjust for navbar height to avoid overlap */
+			padding-top: 60px;
 		}
+
 		.flex-child {
 			flex-grow: 1;
-			transition: flex-grow .5s;
+			display: flex;
+			flex-direction: column; /* Ensures single column */
+			justify-content: center;
+			align-items: center;
+			transition: flex-grow .5s, background-color .5s;
 			overflow: hidden;
 			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			color: white;
-			font-size: 24px;
+			color: black; /* Ensures the text color starts as black */
+			font-size: 19px;
 			padding: 20px;
 			line-height: 1.5;
 			word-wrap: break-word;
-			text-align: justify; /* To align text on both left and right sides */
+			text-align: left; /* Text is now left-aligned */
 			background-color: transparent;
+			column-count: 1; /* Forces a single column */
+			column-gap: 0;   /* No gap between columns */
 		}
+
+		/* Initially hide the text inside the blocks */
+		.flex-child p {
+			display: none;
+			font-size: 16px; /* Set smaller font size for the paragraphs */
+			margin-bottom: 20px; /* Adds extra space between paragraphs */
+			margin-left: 300px;
+			margin-right: 300px;
+		}
+
+		/* Show the text on hover */
+		.flex-child:hover p {
+			display: block;
+		}
+
 		.flex-child:hover {
-			flex-grow: 10;
-			overflow: hidden; /* No scrolling when expanded */
-		}
-		.flex-child:hover > .title {
-			display: none; /* Hide the title when hovered */
-		}
-		.flex-child::after {
-			content: attr(data-fulltext);
-			position: absolute;
-			color: white;
-			background-color: inherit; /* Inherit background color of the box */
-			top: 0;
-			left: 0;
-			width: 100%; /* Full width of the container */
-			height: 100%;
-			padding: 20px;
-			opacity: 0;
-			transition: opacity .5s;
-			line-height: 1.5;
-			box-sizing: border-box;
-			overflow: hidden; /* Hide any overflow and scrollbar */
-			font-size: 18px; /* Smaller paragraph text */
-		}
-		.flex-child:hover::after {
-			opacity: 1;
+			flex-grow: 3;
+			height: 500px;
+			overflow: hidden;
 		}
 
-		/* Title inside flex-child */
-		.title {
-			font-size: 28px;
+		/* Hover styles for different sections */
+		.flex-child:hover.section-1 {
+			background-color: #04FF00;
 		}
 
-		/* Assigning each section a unique background color */
-		.section-1 {
-			background-color: pink; /* Tomato */
-		}
-		.section-2 {
-			background-color: purple; /* SteelBlue */
-		}
-		.section-3 {
-			background-color: green; /* LimeGreen */
-		}
-		.section-4 {
-			background-color: blue; /* Gold */
-		}
-		.section-5 {
-			background-color: yellow; /* HotPink */
-		}
-		.section-6 {
-			background-color: red; /* BlueViolet */
+		.flex-child:hover.section-2 {
+			background-color: #FFFF00;
 		}
 
-		/* Keep the same background color on hover */
-		.flex-child:hover.section-1,
-		.flex-child:hover.section-2,
-		.flex-child:hover.section-3,
-		.flex-child:hover.section-4,
-		.flex-child:hover.section-5,
+		.flex-child:hover.section-3 {
+			background-color: #FF5E00;
+		}
+
+		.flex-child:hover.section-4 {
+			background-color: #FF0037;
+		}
+
+		.flex-child:hover.section-5 {
+			background-color: #B921FF;
+		}
+
 		.flex-child:hover.section-6 {
-			background-color: inherit; /* Keep the same background color on hover */
+			background-color: #00FFAE;
 		}
 
-		/* Responsive design for mobile devices */
+		.flex-child:hover > .title {
+			display: none;
+		}
+
+		.title {
+			font-size: 70px;
+			text-align: center;
+			line-height: 1.1;
+			color: black;
+		}
+
+		/* Section background colors */
+		.section-1 {
+			background-color: #04FF00;
+		}
+
+		.section-2 {
+			background-color: #FFFF00;
+		}
+
+		.section-3 {
+			background-color: #FF5E00;
+		}
+
+		.section-4 {
+			background-color: #FF0037;
+		}
+
+		.section-5 {
+			background-color: #B921FF;
+		}
+
+		.section-6 {
+			background-color: #00FFAE;
+		}
+
 		@media (max-width: 768px) {
 			.navbar {
 				flex-direction: column;
 				align-items: flex-start;
 			}
+
 			.navbar .logo {
 				font-size: 18px;
 				padding: 5px 0;
 			}
+
 			.flex-child {
 				font-size: 18px;
 				line-height: 1.3;
-			}
-			.flex-child::after {
-				width: 100%; /* Full width on smaller screens */
-				padding: 15px; /* Adjust padding for smaller screens */
 			}
 		}
 	</style>
 </head>
 <body>
-	<!-- Responsive Navbar -->
 	<div class="navbar">
 		<div class="logo">DESIGNING FRICTION</div>
 	</div>
 
-	<!-- Flex container with sections -->
 	<div class="flex-parent">
-		<div class="flex-child section-1" data-fulltext="Full text of the first section. This is a fake paragraph for demonstration purposes. The text will scroll when hovered.">
-			<span class="title">Title 1</span>
+		<div class="flex-child section-1">
+			<span class="title">A Call for Friction in Digital Culture</span>
+			<p>As designers, entrepreneurs, and architects of digital culture, we feel the urge to refocus how we deal with our digital futures. Designing Friction is a proposal to change the way we think when producing or interacting with digital technology.</p>
 		</div>
-		<div class="flex-child section-2" data-fulltext="Full text of the second section. Here's another fake paragraph for your viewing pleasure. Hover to scroll.">
-			<span class="title">Title 2</span>
-		</div>
-		<div class="flex-child section-3" data-fulltext="Full text of the third section. A longer paragraph can go here, with scrolling functionality on hover.">
-			<span class="title">Title 3</span>
-		</div>
-		<div class="flex-child section-4" data-fulltext="Full text of the fourth section. Imagine a fake paragraph here that you can scroll through on hover.">
-			<span class="title">Oh Yeah</span>
-		</div>
-		<div class="flex-child section-5" data-fulltext="Full text of the fifth section. Hover to see the extended content in this fake paragraph.">
-			<span class="title">Title 5</span>
-		</div>
-		<div class="flex-child section-6" data-fulltext="Full text of the sixth section. Another long fake paragraph for the hover scroll effect.">
-			<span class="title">Title 6</span>
-		</div>
-	</div>
 
-</body>
-</html>
+		<div class="flex-child section-2">
+			<span class="title">What Is Friction?</span>
+			<p>Friction is resistance. It derives from physical interaction between humans, and humans and things – its reach is holistic. All senses, elements and emotions play a role: sight, sound, smell, taste, touch, air, earth, temperature, agitation, passion, joy, sadness... With movement comes friction.</p>
+			<p>The more we move and act, the more friction we encounter. The more friction there is, the more we engage and care. Friction drives our engagement. Friction, in this context, is not synonymous with either anger or conflict, nor is it malfunctioning technology. Friction is an essential ingredient that makes up our humanness and sparks human connection. Friction is a lively, intrinsic experience.</p>
+		</div>
+
+		<div class="flex-child section-3">
+			<span class="title">Loss of Friction</span>
+			<p>Digital technology has long pursued the goal of eliminating friction, striving for seamlessness. We now navigate a sea of frictionless experiences. (With the possible exception of two-factor authentication.)</p>
+			<p>Function and form are detached. Digital technology goes hand-in-hand with the loss of physical resistance. Philosopher Haroon Sheikh explains that digital technology turns our interactions with things into interactions with devices. A thing is split into its object, or form, and its function. A device is the same object for each function. It’s your purse, your musical instrument and your letterbox, each of which now demands the same bodily action. Instead of using our whole hand to interact, we now use our fingertips to swipe screens or interact with air. Each new app replaces a previously friction-laden human interaction process, David Byrne states. Transactions with machines are perceived to be smoother than interactions with fellow humans.</p>
+		</div>
+
+		<div class="flex-child section-4">
+			<span class="title">Proposal</span>
+			<p>A world headed for a frictionless reality begs the question: how can we create a desirable future with digital technology? How can we access, develop and relate to it? We like to see designing friction as a fundamental design principle when working with digital culture. Instead of following design ethics that strive to eliminate friction, we suggest to not only allow, but embrace friction. To facilitate it: design [products with] digital technology in a way that makes space for our humanness.</p>
+		</div>
+
+		<div class="flex-child section-5">
+			<span class="title">Designing Friction</span>
+			<p>Engage the body: When interacting with screens we lack resistance. Swiping screens makes our world more superficial. Human life gains depth when having thing-relations. Thing-relations tend to bring us together physically and create connections. Designing friction requires thinking about how to increase our resistance. How can we engage our hands and whole bodies? How can these bodily engagements bring us together?</p>
+			<p>Non-positive: Acknowledge the fulfillment in the non-positive. Today’s digital technology creates a society that is in ‘pursuit of happiness,’ in awe of positivity. Smoothness doesn’t injure. It doesn’t produce resistance. It enforces the Like. Designing friction cherishes the non-positive, the ‘digital unseen,’ the disagreement, the doubt, the vulnerable, the complicated. This is what makes us human.</p>
+		</div>
+
+		<div class="flex-child section-6">
+			<span class="title">Zine Series</span>
+			<p><a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a></p>
+
+			<p><a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a></p>
+
+			<p><a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a></p>
+
+			<p><a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a></p>
+
+			<p><a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a></p>
+		</div>
+		
