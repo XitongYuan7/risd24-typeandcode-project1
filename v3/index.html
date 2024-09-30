@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,8 @@
 			width: 100%;
 			top: 0;
 			left: 0;
-			z-index: 10; /* Ensure the navbar stays on top of other elements */
+			z-index: 10;
+			/* Ensure the navbar stays on top of other elements */
 			margin-bottom: 0;
 		}
 
@@ -44,19 +46,23 @@
 			display: flex;
 			flex-direction: column;
 			gap: 1.5px;
-			padding: 0; /* do i have to do this */
+			padding: 0;
+			/* do i have to do this */
 			background-color: black;
 			width: 100vw;
 			height: 100vh;
 			padding-top: 60px;
 			transition: .5s;
 		}
-/* where is the title */
+
+		/* where is the title */
 		.flex-child {
-			flex-grow: 1; /* does this always be 1 */
+			flex-grow: 1;
+			/* does this always be 1 */
 			display: flex;
-			flex-direction: column; 
-			justify-content: center; /* vertically centers the child elements inside */
+			flex-direction: column;
+			justify-content: center;
+			/* vertically centers the child elements inside */
 			align-items: center;
 			transition: flex-grow .5s ease-in-out, background-color .5s ease-in-out;
 			/* is there a better way of smooth transition */
@@ -73,24 +79,28 @@
 
 		.flex-child:hover {
 			flex-grow: 1000;
-			height: 1000px; /* is there a better way */
+			height: 1000px;
+			/* is there a better way */
 			overflow: hidden;
 		}
 
 		.flex-child p {
-			display: none;/* Initially hide the text inside the blocks */
+			display: none;
+			/* Initially hide the text inside the blocks */
 		}
 
-	
+
 		.flex-child:hover p {
-			display: block;	/* Show the text on hover */
+			display: block;
+			/* Show the text on hover */
 			font-size: 16px;
-			margin-bottom: 20px; /* Adds extra space between inside paragraphs */
+			margin-bottom: 20px;
+			/* Adds extra space between inside paragraphs */
 			margin-left: 300px;
 			margin-right: 300px;
 		}
 
-	
+
 		.flex-child:hover.section-1 {
 			background-color: black;
 		}
@@ -104,7 +114,7 @@
 		}
 
 		.flex-child:hover.section-4 {
-			background-color:black;
+			background-color: black;
 		}
 
 		.flex-child:hover.section-5 {
@@ -115,18 +125,19 @@
 			background-color: black;
 		}
 
-		.flex-child:hover > .title {
+		.flex-child:hover>.title {
 			display: none;
 		}
 
 		.title {
 			font-size: 5vw;
-			text-align: center; /* align-items: center; */
+			text-align: center;
+			/* align-items: center; */
 			line-height: 1.1;
 			color: black;
 		}
 
-	
+
 		.section-1 {
 			background-color: #04FF00;
 		}
@@ -151,6 +162,14 @@
 			background-color: #00FFAE;
 		}
 
+		.section-6 a {
+			font-size: 5vw;
+			text-align: center;
+			line-height: 1.1;
+			color: #00FFAE;
+		}
+
+
 		@media (max-width: 768px) {
 			.navbar {
 				flex-direction: column;
@@ -167,22 +186,22 @@
 				line-height: 1.3;
 			}
 
-
-			
+			/* this is not working? so i have to create .section-6 a 
+			in the html, i apply .title for the a tag it is still not working*/
 			.flex-child a {
-   
-    color: rgb(0, 255, 225); 
-  
-    font-size: 100px; 
 
-    transition: background-color 0.3s ease; 
-}
+				color: rgb(0, 255, 225);
 
-.flex-child a:hover {
-    color: rgb(0, 255, 225); 
-  
-    font-size: 100px; 
-}
+				font-size: 100px;
+
+				transition: background-color 0.3s ease;
+			}
+
+			.flex-child a:hover {
+				color: rgb(0, 255, 225);
+
+				font-size: 100px;
+			}
 
 
 
@@ -190,6 +209,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div class="navbar">
 		<div class="logo">DESIGNING FRICTION</div>
@@ -198,37 +218,63 @@
 	<div class="flex-parent">
 		<div class="flex-child section-1">
 			<span class="title">A Call for Friction in Digital Culture</span>
-			<p>As designers, entrepreneurs, and architects of digital culture, we feel the urge to refocus how we deal with our digital futures. Designing Friction is a proposal to change the way we think when producing or interacting with digital technology.</p>
+			<p>As designers, entrepreneurs, and architects of digital culture, we feel the urge to refocus how we deal
+				with our digital futures. Designing Friction is a proposal to change the way we think when producing or
+				interacting with digital technology.</p>
 		</div>
 
 		<div class="flex-child section-2">
 			<span class="title">What Is Friction?</span>
-			<p>Friction is resistance. It derives from physical interaction between humans, and humans and things – its reach is holistic. All senses, elements and emotions play a role: sight, sound, smell, taste, touch, air, earth, temperature, agitation, passion, joy, sadness... With movement comes friction.</p>
-			<p>The more we move and act, the more friction we encounter. The more friction there is, the more we engage and care. Friction drives our engagement. Friction, in this context, is not synonymous with either anger or conflict, nor is it malfunctioning technology. Friction is an essential ingredient that makes up our humanness and sparks human connection. Friction is a lively, intrinsic experience.</p>
+			<p>Friction is resistance. It derives from physical interaction between humans, and humans and things – its
+				reach is holistic. All senses, elements and emotions play a role: sight, sound, smell, taste, touch,
+				air, earth, temperature, agitation, passion, joy, sadness... With movement comes friction.</p>
+			<p>The more we move and act, the more friction we encounter. The more friction there is, the more we engage
+				and care. Friction drives our engagement. Friction, in this context, is not synonymous with either anger
+				or conflict, nor is it malfunctioning technology. Friction is an essential ingredient that makes up our
+				humanness and sparks human connection. Friction is a lively, intrinsic experience.</p>
 		</div>
 
 		<div class="flex-child section-3">
 			<span class="title">Loss of Friction</span>
-			<p>Digital technology has long pursued the goal of eliminating friction, striving for seamlessness. We now navigate a sea of frictionless experiences. (With the possible exception of two-factor authentication.)</p>
-			<p>Function and form are detached. Digital technology goes hand-in-hand with the loss of physical resistance. Philosopher Haroon Sheikh explains that digital technology turns our interactions with things into interactions with devices. A thing is split into its object, or form, and its function. A device is the same object for each function. It’s your purse, your musical instrument and your letterbox, each of which now demands the same bodily action. Instead of using our whole hand to interact, we now use our fingertips to swipe screens or interact with air. Each new app replaces a previously friction-laden human interaction process, David Byrne states. Transactions with machines are perceived to be smoother than interactions with fellow humans.</p>
+			<p>Digital technology has long pursued the goal of eliminating friction, striving for seamlessness. We now
+				navigate a sea of frictionless experiences. (With the possible exception of two-factor authentication.)
+			</p>
+			<p>Function and form are detached. Digital technology goes hand-in-hand with the loss of physical
+				resistance. Philosopher Haroon Sheikh explains that digital technology turns our interactions with
+				things into interactions with devices. A thing is split into its object, or form, and its function. A
+				device is the same object for each function. It’s your purse, your musical instrument and your
+				letterbox, each of which now demands the same bodily action. Instead of using our whole hand to
+				interact, we now use our fingertips to swipe screens or interact with air. Each new app replaces a
+				previously friction-laden human interaction process, David Byrne states. Transactions with machines are
+				perceived to be smoother than interactions with fellow humans.</p>
 		</div>
 
 		<div class="flex-child section-4">
 			<span class="title">Proposal</span>
-			<p>A world headed for a frictionless reality begs the question: how can we create a desirable future with digital technology? How can we access, develop and relate to it? We like to see designing friction as a fundamental design principle when working with digital culture. Instead of following design ethics that strive to eliminate friction, we suggest to not only allow, but embrace friction. To facilitate it: design [products with] digital technology in a way that makes space for our humanness.</p>
+			<p>A world headed for a frictionless reality begs the question: how can we create a desirable future with
+				digital technology? How can we access, develop and relate to it? We like to see designing friction as a
+				fundamental design principle when working with digital culture. Instead of following design ethics that
+				strive to eliminate friction, we suggest to not only allow, but embrace friction. To facilitate it:
+				design [products with] digital technology in a way that makes space for our humanness.</p>
 		</div>
 
 		<div class="flex-child section-5">
 			<span class="title">Designing Friction</span>
-			<p>Engage the body: When interacting with screens we lack resistance. Swiping screens makes our world more superficial. Human life gains depth when having thing-relations. Thing-relations tend to bring us together physically and create connections. Designing friction requires thinking about how to increase our resistance. How can we engage our hands and whole bodies? How can these bodily engagements bring us together?</p>
-			<p>Non-positive: Acknowledge the fulfillment in the non-positive. Today’s digital technology creates a society that is in ‘pursuit of happiness,’ in awe of positivity. Smoothness doesn’t injure. It doesn’t produce resistance. It enforces the Like. Designing friction cherishes the non-positive, the ‘digital unseen,’ the disagreement, the doubt, the vulnerable, the complicated. This is what makes us human.</p>
+			<p>Engage the body: When interacting with screens we lack resistance. Swiping screens makes our world more
+				superficial. Human life gains depth when having thing-relations. Thing-relations tend to bring us
+				together physically and create connections. Designing friction requires thinking about how to increase
+				our resistance. How can we engage our hands and whole bodies? How can these bodily engagements bring us
+				together?</p>
+			<p>Non-positive: Acknowledge the fulfillment in the non-positive. Today’s digital technology creates a
+				society that is in ‘pursuit of happiness,’ in awe of positivity. Smoothness doesn’t injure. It doesn’t
+				produce resistance. It enforces the Like. Designing friction cherishes the non-positive, the ‘digital
+				unseen,’ the disagreement, the doubt, the vulnerable, the complicated. This is what makes us human.</p>
 		</div>
 
 		<div class="flex-child section-6">
 			<span class="title">Zine Series</span>
 			<p>
-				<a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters" target="_blank">Buy the Zines</a>
+				<a href="https://hatopress.net/products/no-44-emoticons-don-t-have-wrinkles-by-luna-maurer-and-roel-wouters"
+					target="_blank">Buy the Zines</a>
 			</p>
 		</div>
-		
-		
